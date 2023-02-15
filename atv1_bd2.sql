@@ -62,30 +62,18 @@ CREATE TABLE IF NOT EXISTS pessoa_curso (
 
 
    
-INSERT INTO estado(nome, sigla)
-VALUES ('Paraná','PR');
+INSERT INTO estado (id, nome, sigla) VALUES (2, 'PARANA', 'PR');
+INSERT INTO instituicao (id, nome) VALUES (2, 'IFPR');
+INSERT INTO cidade (id, nome, estado_id) VALUES (1, 'PARANAVAÍ', 1);
+INSERT INTO pessoa (id, nome, data_nascimento, instituicao_id, cidade_id) VALUES (1, 'MISAEL', '1888-05-12', 1, 1);
+INSERT INTO curso (id, nome, professor, instituicao_id) VALUES (1, 'BANCO DE DADOS', 'ANGELICA', 1);
+INSERT INTO pessoa_curso (id, curso_id, pessoa_id) VALUES (1, 1, 1);
 
-INSERT INTO cidade(nome, estado_id)
-VALUES ('Paranavaí',1);
-
-INSERT INTO pessoa(nome, data_nascimento, cidade_id)
-VALUES ('José','2004-05-22',1);
-
-INSERT INTO cidade(nome, estado_id)
-VALUES ('Nova Esperança',1);
-
-INSERT INTO pessoa(nome, data_nascimento, cidade_id)
-VALUES ('Misael','1994-05-18',2);
-
-INSERT INTO curso(nome, professor, pessoa_id)
-VALUES ('Empreendedorismo','Hercilio',1);
-
-INSERT INTO curso(nome, professor, pessoa_id)
-VALUES ('Banco de Dados','Angélica',2);
 
 SELECT * FROM estado;
 SELECT * FROM cidade;
+SELECT * FROM instituicao;
 SELECT * FROM pessoa;
 SELECT * FROM curso;
+SELECT * FROM pessoa_curso;
 
-ALTER TABLE curso DROP COLUMN curso;
